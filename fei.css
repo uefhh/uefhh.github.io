@@ -1,0 +1,75 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f8f8f8;
+}
+ 
+.heart-wrapper {
+  position: relative;
+  width: 150px;
+  height: 130px;
+}
+ 
+.heart {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100px;
+  height: 90px;
+  margin-top: -45px;
+  margin-left: -50px;
+  background: #f00;
+  transform: rotate(-45deg);
+}
+ 
+.heart::before,
+.heart::after {
+  content: "";
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: #f00;
+}
+ 
+.heart::before {
+  top: -50px;
+  left: 0;
+}
+ 
+.heart::after {
+  top: 0;
+  left: 50px;
+}
+ 
+.text {
+  font-size: 2rem;
+  font-weight: bold;
+  letter-spacing: 0.2rem;
+  text-align: center;
+  color: #333;
+  opacity: 0;
+  animation: text-fade 1s ease-in-out forwards;
+}
+ 
+@keyframes heart-pulse {
+  from {
+    transform: scale(1, 1) translate3d(0, 0, 0);
+  }
+  to {
+    transform: scale(1.2, 1.2) translate3d(0, -10px, 0);
+  }
+}
+ 
+@keyframes text-fade {
+  from {
+    opacity: 0;
+    transform: scale(0.5, 0.5) translate3d(0, 20px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1, 1) translate3d(0, 0, 0);
+  }
+}
